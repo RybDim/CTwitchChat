@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -pedantic -g -I./include
+CFLAGS = -Wall -Wextra -Werror -pedantic -g
 SRC_DIR = src
 BUILD_DIR = build
 BIN_DIR = bin

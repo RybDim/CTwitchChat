@@ -3,7 +3,6 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <errno.h>
 #include <netdb.h>
@@ -12,6 +11,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/param.h>
+#include <stdbool.h>
 
 #define TWITCH_IRC_NOSSL_SERVER "irc.chat.twitch.tv"
 #define TWITCH_IRC_NOSSL_PORT 6667

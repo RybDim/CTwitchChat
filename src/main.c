@@ -1,16 +1,22 @@
 #include "irc_twitchclient.h"
+#include "env_parser.h"
 
 int main(int argc, char **argv)
 {
-	if (argc < 4)
+	if (argc < 3)
 	{
-		fprintf(stderr, "Usage: %s [oauth_token] [nickname] [channel]\n", argv[0]);
+		fprintf(stderr, "Usage: %s [nickname] [channel]\n", argv[0]);
 		return EXIT_FAILURE;
 	}
 
-	const char *oauth_token = argv[1];
-	const char *nickname = argv[2];
-	const char *channel = argv[3];
+	char *oauth_token = NULL;
+	const char *nickname = argv[1];
+	const char *channel = argv[2];
+
+	short res = 0;
+	if((res = read_env_file(&oauth_token)) != 0) {
+		return 1;
+	}
 
 	IRCTwitchClient *client = irc_client_init(oauth_token, nickname);
 	if (!client)
